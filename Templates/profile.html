@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>Delebcloud Dashboard (Manager)</title>
+  <!-- loader-->
+  <link href="{% get_static_prefix %}Temp1/assets/css/pace.min.css" rel="stylesheet"/>
+  <script src="{% get_static_prefix %}Temp1/assets/js/pace.min.js"></script>
+  <!--favicon-->
+  <link rel="icon" href="{% get_static_prefix %}Temp1/assets/images/favicon.ico" type="image/x-icon">
+  <!-- simplebar CSS-->
+  <link href="{% get_static_prefix %}Temp1/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="{% get_static_prefix %}Temp1/assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="{% get_static_prefix %}Temp1/assets/css/animate.css" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="{% get_static_prefix %}Temp1/assets/css/icons.css" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="{% get_static_prefix %}Temp1/assets/css/sidebar-menu.css" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="{% get_static_prefix %}Temp1/assets/css/app-style.css" rel="stylesheet"/>
+  
+  
+</head>
+
+<body class="bg-theme bg-theme1">
+
+
+
+   
+      <div class="table-responsive">
+        <div class="card-body">
+          <div class="card card-authentication1 mx-auto my-3" style="width: 70%;">
+          <div class="card-content p-2">
+            <div class="text-center">
+            
+            </div>
+
+            <div style="text-align: center;" id="fat" class="result">
+              <img style="border-radius: 200px;width:200px;height:200px " src="{% get_media_prefix %}Users/{{id}}.jpg?{{Rand}}">
+            
+            </div>
+            <style>
+              .upload-btn-wrapper {
+              position: relative;
+              overflow: hidden;
+              display: inline-block;
+              cursor: pointer;
+              }	  
+              .upload-btn-wrapper input[type=file] {
+              font-size: 100px;
+              position: absolute;
+              left: 0;
+              top: 0;
+              cursor: pointer;
+              width: 50%;
+              opacity: 0;
+              }
+              </style>
+              
+            <div style="text-align: center;" class="box">
+              <div style="padding-top: 20px;"></div>
+              <div class="upload-btn-wrapper">
+            <button  class="btn btn-light btn-block">Select an image</button>
+           <form accept="" method="post" enctype="multipart/form-data">
+            <input  class="mdc-text-field__input"  id="file-input" style="width: 100%;" type="file" name="New_Img" required="" accept="image/*" />
+            </div>
+            <button type="submit" class="btn btn-light btn-block" style="background-color: rgba(16, 207, 10, 0.274);">Apply</button>
+          </form>
+            <script>
+  
+              // vars
+              let result = document.getElementById("fat"),
+              upload = document.getElementById("file-input"),
+              
+              cropper = '';
+              
+              // on change show image with crop options
+              upload.addEventListener('change', (e) => {
+                if (e.target.files.length) {
+                  
+                  const reader = new FileReader();
+                  reader.onload = (e)=> {
+                    if(e.target.result){
+                    console.log(e);
+                      
+                      let img = document.createElement('img');
+                      img.id = 'image';
+                      img.src = e.target.result;
+                      console.log(e.target.result);
+                      img.style = "border-radius: 200px;width:200px;height:200px"
+                      
+                      result.innerHTML = '';
+                    
+                      result.appendChild(img);
+                      // show save btn and options
+                      save.classList.remove('hide');
+                      options.classList.remove('hide');
+                      // init cropper
+                      cropper = new Cropper(img);
+                    }
+                  };
+                  reader.readAsDataURL(e.target.files[0]);
+                }
+              });
+              </script>
+          
+    <!--End Row-->
+   
+            
+        </div>
+      </div>
+     </div><!--End Row-->
+
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+    
+   </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+	
+	<!--Start footer-->
+	
+	<!--End footer-->
+	
+	<!--start color switcher-->
+   <div class="right-sidebar">
+    <div class="switcher-icon">
+      <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+    </div>
+    <div class="right-sidebar-content">
+
+      <p class="mb-0">Gaussion Texture</p>
+      <hr>
+      
+      <ul class="switcher">
+        <li id="theme1"></li>
+        <li id="theme2"></li>
+        <li id="theme3"></li>
+        <li id="theme4"></li>
+        <li id="theme5"></li>
+        <li id="theme6"></li>
+      </ul>
+
+      <p class="mb-0">Gradient Background</p>
+      <hr>
+      
+      <ul class="switcher">
+        <li id="theme7"></li>
+        <li id="theme8"></li>
+        <li id="theme9"></li>
+        <li id="theme10"></li>
+        <li id="theme11"></li>
+        <li id="theme12"></li>
+		<li id="theme13"></li>
+        <li id="theme14"></li>
+        <li id="theme15"></li>
+      </ul>
+      
+     </div>
+   </div>
+  <!--end color switcher-->
+   
+  </div><!--End wrapper-->
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% get_static_prefix %}Temp1/assets/js/jquery.min.js"></script>
+  <script src="{% get_static_prefix %}Temp1/assets/js/popper.min.js"></script>
+  <script src="{% get_static_prefix %}Temp1/assets/js/bootstrap.min.js"></script>
+	
+ <!-- simplebar js -->
+  <script src="{% get_static_prefix %}Temp1/assets/plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="{% get_static_prefix %}Temp1/assets/js/sidebar-menu.js"></script>
+  
+  <!-- Custom scripts -->
+  <script src="{% get_static_prefix %}Temp1/assets/js/app-script.js"></script>
+	
+</body>
+</html>
